@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import TeamSelector from './teamSelector';
+import CustomMenu from './topMenu';
 
 import AngelsLogo from './images/Angels.png';
 import DiamondbacksLogo from './images/Diamondbacks.png';
@@ -110,13 +111,17 @@ const App = () => {
         )}
       />
       {index < games.length - 1 && <View style={styles.divider} />}
+      <Text style={styles.fullSeasonText}>MLB Team Full Schedule</Text>
       <TeamSelector />
     </View>
   );
 
   return (
     <View style={styles.container}>
+      <View style={styles.headerContainer}>
       <Text style={styles.heading}>MLB Games</Text>
+      <CustomMenu />
+      </View>
       <FlatList
         data={games}
         keyExtractor={item => item.date}
@@ -131,6 +136,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
   },
   heading: {
     fontSize: 24,
@@ -179,6 +190,11 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
   },
+  fullSeasonText: {
+    fontSize: 20, 
+    fontWeight: 'bold',
+    marginTop: 25,
+  }
 });
 
 export default App;
