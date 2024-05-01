@@ -3,6 +3,8 @@ import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import TeamSelector from './teamSelector';
 import CustomMenu from './topMenu';
+import StandingsAL from './standingsAL';
+import StandingsNL from './standingsNL';
 
 import AngelsLogo from './images/Angels.png';
 import DiamondbacksLogo from './images/Diamondbacks.png';
@@ -34,6 +36,8 @@ import WhiteSoxLogo from './images/WhiteSox.png';
 import MarlinsLogo from './images/Marlins.png';
 import YankeesLogo from './images/Yankees.png';
 import BrewersLogo from './images/Brewers.png';
+
+//Link to GitHub with main urls for api: https://github.com/brianhaferkamp/mlbapidata
 
 
 const teamLogos = {
@@ -113,6 +117,7 @@ const App = () => {
       {index < games.length - 1 && <View style={styles.divider} />}
       <Text style={styles.fullSeasonText}>MLB Team Full Schedule</Text>
       <TeamSelector />
+      <StandingsAL />
     </View>
   );
 
@@ -141,7 +146,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    margingBottom: 20,
   },
   heading: {
     fontSize: 24,

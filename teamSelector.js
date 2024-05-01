@@ -52,7 +52,7 @@ const TeamSelector = () => {
         value={teamName}
         style={styles.input}
       />
-      <Button title="Search" onPress={handleSearch}/>
+      <Button color='#7a1c15' title="Search" onPress={handleSearch}/>
       {searched && (
         <FlatList
           data={allGames}
