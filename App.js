@@ -117,7 +117,10 @@ const App = () => {
       {index < games.length - 1 && <View style={styles.divider} />}
       <Text style={styles.fullSeasonText}>MLB Team Full Schedule</Text>
       <TeamSelector />
+      <Text style={styles.standingsText}>AL Standings</Text>
       <StandingsAL />
+      <Text style={styles.standingsText}>NL Standings</Text>
+      <StandingsNL />
     </View>
   );
 
@@ -146,7 +149,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margingBottom: 20,
+    marginBottom: 20,
+    marginTop: 10
   },
   heading: {
     fontSize: 24,
@@ -199,6 +203,13 @@ const styles = StyleSheet.create({
     fontSize: 20, 
     fontWeight: 'bold',
     marginTop: 25,
+  },
+  standingsText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 30,
+    marginBottom: 15
   }
 });
 
