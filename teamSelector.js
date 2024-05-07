@@ -11,7 +11,7 @@ const TeamSelector = () => {
   const fetchAllGames = async () => {
     try {
       if (!teamId) return;
-      const response = await axios.get(`https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&teamId=${teamId}&startDate=2024-03-28&endDate=2024-05-02`);
+      const response = await axios.get(`https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&teamId=${teamId}&startDate=2024-03-28&endDate=2024-05-07`);
       setAllGames(response.data.dates);
     } catch (error) {
       console.error('Error fetching all games: ', error);
@@ -43,6 +43,7 @@ const TeamSelector = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.fullSeasonText}>MLB Team Full Schedule</Text>
       <TextInput
         placeholder="Enter Team Name"
         onChangeText={(text) => {
@@ -65,11 +66,14 @@ const TeamSelector = () => {
                 data={item.games}
                 keyExtractor={game => game.gamePk.toString()}
                 renderItem={({ item: game }) => (
-                  <View style={styles.game}>
-                    <Text style={styles.gameText}>
-                      {game.teams.away.team.name} {game.teams.away.score} vs {game.teams.home.team.name} {game.teams.home.score}
-                    </Text>
-                  </View>
+                <View style={styles.game}>
+                  <Text style={styles.gameText}>
+                    <Text style={styles.teamName}>{game.teams.away.team.name}:</Text> {game.teams.away.score}
+                  </Text>
+                  <Text style={styles.gameText}>
+                    <Text style={styles.teamName}>{game.teams.home.team.name}:</Text> {game.teams.home.score}
+                  </Text>
+                </View>
                 )}
               />
             </View>
@@ -111,6 +115,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 5,
   },
+  fullSeasonText: {
+    fontSize: 20, 
+    fontWeight: 'bold',
+    marginTop: 25,
+  },
+  
 });
 
 export default TeamSelector;

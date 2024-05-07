@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-const Standings = () => {
+const StandingsAL = () => {
     const [standings, setStandings] = useState([]);
 
     useEffect(() => {
@@ -35,7 +35,11 @@ const Standings = () => {
     );
 
     return (
-        <View style={styles.container}>
+        <View style={styles.standingsViews}>
+            <View style={styles.standingsContainer}>
+                <Text style={styles.standingsText}>AL Standings</Text>
+                <Text style={styles.GBText}>GB</Text>
+            </View>
             <FlatList
                 data={standings}
                 renderItem={renderItem}
@@ -64,6 +68,25 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 16,
     },
+    standingsViews: {
+        flex: 1,
+        marginTop: 10
+    },
+    standingsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 15,
+        marginRight: 5
+    },
+    standingsText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    GBText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
 });
 
-export default Standings;
+export default StandingsAL;

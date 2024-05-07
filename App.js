@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
-import TeamSelector from './teamSelector';
 import CustomMenu from './topMenu';
 import StandingsAL from './standingsAL';
 import StandingsNL from './standingsNL';
@@ -115,20 +114,15 @@ const App = () => {
         )}
       />
       {index < games.length - 1 && <View style={styles.divider} />}
-      <Text style={styles.fullSeasonText}>MLB Team Full Schedule</Text>
-      <TeamSelector />
-      <Text style={styles.standingsText}>AL Standings</Text>
-      <StandingsAL />
-      <Text style={styles.standingsText}>NL Standings</Text>
-      <StandingsNL />
+        <CustomMenu />
     </View>
+
   );
 
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
       <Text style={styles.heading}>MLB Games</Text>
-      <CustomMenu />
       </View>
       <FlatList
         data={games}
@@ -155,7 +149,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 5,
     marginTop: 20
   },
   gameContainer: {
@@ -199,18 +193,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
   },
-  fullSeasonText: {
-    fontSize: 20, 
-    fontWeight: 'bold',
-    marginTop: 25,
-  },
-  standingsText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 30,
-    marginBottom: 15
-  }
 });
 
 export default App;
