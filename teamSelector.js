@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 const TeamSelector = () => {
@@ -53,7 +53,9 @@ const TeamSelector = () => {
         value={teamName}
         style={styles.input}
       />
-      <Button color='#7a1c15' title="Search" onPress={handleSearch}/>
+      <TouchableOpacity style={styles.button} onPress={handleSearch}>
+        <Text style={styles.buttonText}>Search</Text>
+      </TouchableOpacity>
       {searched && (
         <FlatList
           data={allGames}
@@ -119,6 +121,18 @@ const styles = StyleSheet.create({
     fontSize: 20, 
     fontWeight: 'bold',
     marginTop: 25,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  button: {
+    backgroundColor: '#7a1c15',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
   },
   
 });
