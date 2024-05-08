@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import TeamSelector from './teamSelector';
-import StandingsAL from './standingsAL';
-import StandingsNL from './standingsNL';
-import ALDivisionStandings from './alDivStandings';
-import NLDivisionStandings from './nlDivStandings';
+import StandingsAL from './standings/standingsAL';
+import StandingsNL from './standings/standingsNL';
+import ALDivisionStandings from './standings/alDivStandings';
+import NLDivisionStandings from './standings/nlDivStandings';
+
+//got modal code from: https://reactnative.dev/docs/modal
 
 const CustomMenu = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);

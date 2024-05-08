@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import CustomMenu from './topMenu';
-import ALDivisionStandings from './alDivStandings';
-import NLDivisionStandings from './nlDivStandings';
 
 import AngelsLogo from './images/Angels.png';
 import DiamondbacksLogo from './images/Diamondbacks.png';
