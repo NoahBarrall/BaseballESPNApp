@@ -3,11 +3,14 @@ import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import TeamSelector from './teamSelector';
 import StandingsAL from './standingsAL';
 import StandingsNL from './standingsNL';
+import ALDivisionStandings from './alDivStandings';
+import NLDivisionStandings from './nlDivStandings';
 
 const CustomMenu = () => {
   const [isMenuVisible, setMenuVisible] = useState(false);
   const [showTeamSelector, setShowTeamSelector] = useState(false);
-  const [showStandings, setShowStandings] = useState(null); // Initialize with null, meaning no standings are shown initially
+  const [showStandings, setShowStandings] = useState(null); 
+  const [showDivStandings, setShowDivStandings] = useState(null);
 
   const handleMenuPress = () => {
     setMenuVisible(true);
@@ -20,14 +23,23 @@ const CustomMenu = () => {
   const openTeamSelect = () => {
     setShowTeamSelector(true);
     setMenuVisible(false);
-    setShowStandings(null); // Close any standings if opened
+    setShowStandings(null); 
+    setShowDivStandings(null);
   };
 
   const openStandings = (type) => {
     setShowStandings(type);
     setMenuVisible(false);
     setShowTeamSelector(false);
+    setShowDivStandings(null);
   };
+
+  const openDivStandings = (typeDiv) => {
+    setShowDivStandings(typeDiv);
+    setMenuVisible(false);
+    setShowTeamSelector(false);
+    setShowStandings(null);
+  }
 
   return (
     <View>
@@ -51,12 +63,20 @@ const CustomMenu = () => {
             <TouchableOpacity onPress={() => openStandings('NL')}>
               <Text style={styles.menuItem}>NL Standings</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => openDivStandings('ALDiv')}>
+              <Text style={styles.menuItem}>AL Divisions</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => openDivStandings('NLDiv')}>
+              <Text style={styles.menuItem}>NL Divisions</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>
       {showTeamSelector && <TeamSelector />}
       {showStandings === 'AL' && <StandingsAL />}
       {showStandings === 'NL' && <StandingsNL />}
+      {showDivStandings === 'ALDiv' && <ALDivisionStandings />}
+      {showDivStandings === 'NLDiv' && <NLDivisionStandings />}
     </View>
   );
 };

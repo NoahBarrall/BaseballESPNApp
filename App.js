@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import CustomMenu from './topMenu';
-import StandingsAL from './standingsAL';
-import StandingsNL from './standingsNL';
+import ALDivisionStandings from './alDivStandings';
+import NLDivisionStandings from './nlDivStandings';
 
 import AngelsLogo from './images/Angels.png';
 import DiamondbacksLogo from './images/Diamondbacks.png';
@@ -137,35 +137,38 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10
+    padding: 10,
+    backgroundColor: '#f0f0f0'
   },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
-    marginTop: 10
+    marginTop: 10,
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 5,
-    marginTop: 20
+    marginTop: 25,
+    color: '#333'
   },
   gameContainer: {
     marginBottom: 20,
+    borderRadius: 15, 
+    shadowColor: '#000', 
   },
   dateText: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: '#333', 
   },
   gamesText: {
     fontSize: 16,
     marginBottom: 5,
-  },
-  gameDetailsContainer: {
-    marginBottom: 10,
+    color: '#333', 
   },
   teamContainer: {
     flexDirection: 'row',
@@ -176,23 +179,26 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
     marginLeft: -5,
-    marginRight: 5
+    marginRight: 5,
   },
   teamText: {
     fontSize: 14,
     marginBottom: 5,
+    color: '#333', 
   },
   locationText: {
     fontSize: 14,
-    color: 'gray',
+    color: '#555', 
   },
   gameItemContainer: {
     borderWidth: 2,
-    borderColor: 'lightgray',
+    borderColor: '#ccc', 
     borderRadius: 5,
     padding: 10,
     marginBottom: 10,
+    backgroundColor: '#f9f9f9', 
   },
 });
+
 
 export default App;

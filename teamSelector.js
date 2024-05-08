@@ -11,7 +11,7 @@ const TeamSelector = () => {
   const fetchAllGames = async () => {
     try {
       if (!teamId) return;
-      const response = await axios.get(`https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&teamId=${teamId}&startDate=2024-03-28&endDate=2024-05-07`);
+      const response = await axios.get(`https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&teamId=${teamId}&startDate=2024-03-28&endDate=2024-05-08`);
       setAllGames(response.data.dates);
     } catch (error) {
       console.error('Error fetching all games: ', error);
