@@ -63,17 +63,16 @@ const TeamSelector = () => {
           renderItem={({ item }) => (
             <View style={styles.gameContainer}>
               <Text style={styles.date}>Date: {item.date}</Text>
-              <Text style={styles.subtitle}>Game(s):</Text>
               <FlatList
                 data={item.games}
                 keyExtractor={game => game.gamePk.toString()}
                 renderItem={({ item: game }) => (
                 <View style={styles.game}>
                   <Text style={styles.gameText}>
-                    <Text style={styles.teamName}>{game.teams.away.team.name}:</Text> {game.teams.away.score}
+                    <Text style={styles.teamName}>{game.teams.away.team.name}</Text>: {game.teams.away.score}
                   </Text>
                   <Text style={styles.gameText}>
-                    <Text style={styles.teamName}>{game.teams.home.team.name}:</Text> {game.teams.home.score}
+                    <Text style={styles.teamName}>{game.teams.home.team.name}</Text>: {game.teams.home.score}
                   </Text>
                 </View>
                 )}
@@ -90,25 +89,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    backgroundColor: '#f5f5f5',
   },
   input: {
     borderWidth: 1,
     padding: 8,
     marginVertical: 8,
+    borderRadius: 5,
+    borderColor: '#ccc',
+    backgroundColor: '#fff',
   },
   gameContainer: {
     marginTop: 20,
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 5,
+    elevation: 3,
   },
   date: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: '#333',
   },
   subtitle: {
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 5,
     marginLeft: 5,
+    color: '#666',
   },
   game: {
     marginLeft: 10,
@@ -116,17 +125,21 @@ const styles = StyleSheet.create({
   gameText: {
     fontSize: 14,
     marginBottom: 5,
+    color: '#444',
   },
   fullSeasonText: {
-    fontSize: 20, 
+    fontSize: 24, 
     fontWeight: 'bold',
     marginTop: 25,
+    marginBottom: 15,
+    color: '#333',
+    textAlign: 'center',
   },
   buttonText: {
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   button: {
     backgroundColor: '#7a1c15',
@@ -134,7 +147,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
   },
-  
+  teamName: {
+    fontWeight: 'bold',
+    color: '#7a1c15',
+  },
 });
 
 export default TeamSelector;
